@@ -13,4 +13,6 @@ const connectDB = async () => {
    }
 };
 
+//deneme
+
 export default connectDB;
