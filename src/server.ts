@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/user.routes";
+import userRoutes from "./routes/user.routes";
 import authorRoutes from "./routes/author.routes";
 import categoryRoutes from "./routes/category.routes";
 import bookRoutes from "./routes/book.routes";
@@ -23,7 +23,7 @@ const httpServer = http.createServer(app); // Eklendi
 
 // CORS Ayarları
 const corsOptions = {
-   origin: ["http://localhost:3000", "http://192.168.1.103:3000"], // Client adresleriniz
+   origin: ["https://yazar.vercel.app/"], // Client adresleriniz
    credentials: true, // Cookie'lerin gönderilmesine izin ver
 };
 
@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
 });
 
 // API Rotaları
-app.use("/api/auth", authRoutes); // authRoutes -> userRoutes olarak değiştirilebilir, kontrol et
+app.use("/api/auth", userRoutes); // authRoutes -> userRoutes olarak değiştirilebilir, kontrol et
 app.use("/api/author", authorRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/books/categories", categoryRoutes); // Bu route /api/categories olmalı gibi duruyor, kontrol et
