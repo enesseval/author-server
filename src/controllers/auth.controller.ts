@@ -138,6 +138,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
       // Access token'ı cookie olarak gönderme
       res.cookie("accessToken", accessToken, {
+         httpOnly: true,
+         domain: "yazar.vercel.app",
          secure: true,
          sameSite: "none",
          maxAge: 60 * 60 * 1000, // 1 saat
