@@ -23,7 +23,7 @@ const httpServer = http.createServer(app); // Eklendi
 
 // CORS Ayarları
 const corsOptions = {
-   origin: ["https://yazar.vercel.app/"], // Client adresleriniz
+   origin: ["https://yazar.vercel.app"], // Client adresleriniz
    credentials: true, // Cookie'lerin gönderilmesine izin ver
 };
 
