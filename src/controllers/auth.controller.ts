@@ -137,11 +137,13 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       await user.save();
 
       // Access token'ı cookie olarak gönderme
+      // Domain'i kaldırdık, böylece tarayıcı isteğin yapıldığı host'u kullanır.
+      // Bu, localhost, preview URL'leri ve production domain'inde çalışmayı sağlar.
       res.cookie("accessToken", accessToken, {
          httpOnly: true,
-         domain: "yazar.vercel.app",
-         secure: true,
-         sameSite: "lax",
+         // domain: "yazar.vercel.app", // Kaldırıldı
+         secure: true, // Production'da HTTPS üzerinden çalışacağı için true kalmalı
+         sameSite: "lax", // CSRF koruması için iyi bir başlangıç
          maxAge: 60 * 60 * 1000, // 1 saat
       });
 
