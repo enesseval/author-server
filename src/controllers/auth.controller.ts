@@ -138,7 +138,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
       // Access token'ı cookie olarak gönderme
       res.cookie("accessToken", accessToken, {
-         httpOnly: true,
          secure: process.env.NODE_ENV === "production",
          sameSite: "strict",
          maxAge: 60 * 60 * 1000, // 1 saat
