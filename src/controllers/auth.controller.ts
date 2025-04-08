@@ -141,7 +141,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
          httpOnly: true,
          domain: "yazar.vercel.app",
          secure: true,
-         sameSite: "none",
+         sameSite: "lax",
          maxAge: 60 * 60 * 1000, // 1 saat
       });
 
