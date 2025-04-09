@@ -143,7 +143,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
          httpOnly: true,
          // domain: "yazar.vercel.app", // Kaldırıldı
          secure: true, // Production'da HTTPS üzerinden çalışacağı için true kalmalı
-         domain: "yazar.vercel.app",
+
          path: "/",
          sameSite: "none",
          maxAge: 60 * 60 * 1000, // 1 saat
